@@ -103,8 +103,8 @@ public class shapeTest {
 
             //then
             Assertions.assertEquals(triangle, testResultTriangle);
-            Assertions.assertEquals(triangle, testResultCircle);
-            Assertions.assertEquals(triangle, testResultSquare);
+            Assertions.assertEquals(circle, testResultCircle);
+            Assertions.assertEquals(square, testResultSquare);
         }
 
         @Test
@@ -124,7 +124,11 @@ public class shapeTest {
             //given
             ShapeCollector testCollector = new ShapeCollector();
             Shape triangle = new Triangle(3.0, 4.0);
+            Shape circle = new Circle(3.0);
+            Shape square = new Square(2.0);
             testCollector.addFigure(triangle);
+            testCollector.addFigure(circle);
+            testCollector.addFigure(square);
 
             //when
             boolean result = testCollector.showFigures();
@@ -177,7 +181,5 @@ public class shapeTest {
             Assertions.assertEquals(expectedCircle, resultCircle);
             Assertions.assertEquals(expectedSquare, resultSquare);
         }
-
     }
-
 }

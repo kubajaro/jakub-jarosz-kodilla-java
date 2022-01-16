@@ -12,12 +12,12 @@ public class Circle implements Shape{
 
     @Override
     public String getShapeName() {
-        return null;
+        return "It's a circle";
     }
 
     @Override
     public double getArea() {
-        return 0;
+        return Math.PI*Math.pow(radius, 2);
     }
 
     @Override

@@ -14,12 +14,12 @@ public class Triangle implements Shape{
 
     @Override
     public String getShapeName() {
-        return null;
+        return "It's a triangle";
     }
 
     @Override
     public double getArea() {
-        return 0;
+        return 0.5*height*baseLength;
     }
 
     @Override

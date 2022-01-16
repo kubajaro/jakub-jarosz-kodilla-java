@@ -7,19 +7,35 @@ public class ShapeCollector {
     List<Shape> shapes = new ArrayList<>();
 
     public void addFigure(Shape shape){
+        shapes.add(shape);
     }
 
     public boolean removeFigure(Shape shape){
-        return false;
+        if(shapes.contains(shape)){
+            shapes.remove(shape);
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public Shape getFigure(int figureNumber){
         Shape resultShape = null;
+        if(figureNumber >= 0 && figureNumber < shapes.size()){
+            resultShape = shapes.get(figureNumber);
+        }
         return resultShape;
     }
 
     public boolean showFigures(){
-        return false;
+        if(!shapes.isEmpty()){
+            for(Shape shape: shapes){
+                System.out.println(shape);
+            }
+            return true;
+        }else {
+            return false;
+        }
     }
 
 }
