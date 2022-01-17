@@ -52,19 +52,30 @@ public class CollectionTestSuite {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         List<Integer> testedList = new ArrayList<>();
 
-       for(int i = 1; i <= 10; i++){
+        for(int i = 1; i <= 10; i++){
            testedList.add(i);
-       }
-
-        Integer numbers [] = new Integer[]{1,2,3,4,5,6,7,8,9,10};
-       List<Integer> testedList2 = Arrays.asList(numbers);
+        }
 
         //when
         List<Integer> result = oddNumbersExterminator.exterminate(testedList);
-        List<Integer> result2 = oddNumbersExterminator.exterminate(testedList2);
 
         //then
         Assertions.assertEquals(5, result.size());
-        Assertions.assertEquals(5, result2.size());
+    }
+
+    @DisplayName("When provided list includes integers tested method removes odd numbers and returns"+
+            "new list with even numbers - asList method")
+    @Test
+    public void testOddNumbersExterminatorNormalListAsList(){
+        //given
+        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+        Integer numbers [] = new Integer[]{1,2,3,4,5,6,7,8,9,10};
+        List<Integer> testedList = Arrays.asList(numbers);
+
+        //when
+        List<Integer> result = oddNumbersExterminator.exterminate(testedList);
+
+        //then
+        Assertions.assertEquals(5, result.size());
     }
 }
