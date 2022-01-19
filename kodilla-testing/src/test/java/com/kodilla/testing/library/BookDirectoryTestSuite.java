@@ -3,6 +3,7 @@ package com.kodilla.testing.library;
 import com.kodilla.testing.testing.library.Book;
 import com.kodilla.testing.testing.library.BookLibrary;
 import com.kodilla.testing.testing.library.LibraryDatabase;
+import com.kodilla.testing.testing.library.LibraryUser;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -88,6 +89,36 @@ public class BookDirectoryTestSuite {
         //then
         assertEquals(0, listOf0Books.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
+    }
+
+    @Test
+    void testListBooksIfHandsOf(){
+        //given
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser user = new LibraryUser("Jan", "Brzechwa", "99999");
+        LibraryUser user2 = new LibraryUser("Adam", "Polanski", "99991");
+        LibraryUser user3 = new LibraryUser("Anna", "Kurek", "99992");
+        List<Book> booksListEmpty = new ArrayList<>();
+        List<Book> booksListSize1 = generateListOfNBooks(1);
+        List<Book> booksListSize15 = generateListOfNBooks(15);
+        when(libraryDatabaseMock.listBooksInHandsOf(any(LibraryUser.class)))
+                .thenReturn(booksListEmpty);
+        when(libraryDatabaseMock.listBooksInHandsOf(user2))
+                .thenReturn(booksListSize1);
+        when(libraryDatabaseMock.listBooksInHandsOf(user3))
+                .thenReturn(booksListSize15);
+
+        //when
+        List<Book> resultEmpty = bookLibrary.listBooksInHandsOf(user);
+        List<Book> resultSize1 = bookLibrary.listBooksInHandsOf(user2);
+        List<Book> resultSize15 = bookLibrary.listBooksInHandsOf(user3);
+
+        //then
+        assertEquals(0, resultEmpty.size());
+        assertEquals(1, resultSize1.size());
+        assertEquals(15, resultSize15.size());
+        verify(libraryDatabaseMock, times(3))
+                .listBooksInHandsOf(any(LibraryUser.class));
     }
 
 }

@@ -18,9 +18,9 @@ public class BookLibrary {
         return result;
     }
 
-//    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
-//        List<Book> listOfBooks = new ArrayList<>();
-//        return listOfBooks;
-//    }
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
+        List<Book> listOfBooks = libraryDatabase.listBooksInHandsOf(libraryUser);
+        return listOfBooks;
+    }
 
 }
