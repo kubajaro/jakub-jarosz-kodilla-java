@@ -13,7 +13,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class BookDirectoryTestSuite {
@@ -51,14 +52,42 @@ public class BookDirectoryTestSuite {
         assertEquals(4, listOfBooks.size());
     }
 
+    @Test
     void testListBooksWithConditionsMoreThan20(){
         //given
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOf0Books = new ArrayList<>();
+        List<Book> resultListOf19Books = generateListOfNBooks(19);
+        List<Book> resultListOf21Books = generateListOfNBooks(21);
+        when(libraryDatabaseMock.listBooksWithCondition(anyString()))
+                .thenReturn(resultListOf19Books);
+        when(libraryDatabaseMock.listBooksWithCondition("ZeroBooks"))
+                .thenReturn(resultListOf0Books);
+        when(libraryDatabaseMock.listBooksWithCondition("ListOf40"))
+                .thenReturn(resultListOf21Books);
 
-        assertTrue(false);
+        //when
+        List<Book> listOfBooks0 = bookLibrary.listBooksWithCondition("ZeroBooks");
+        List<Book> listOfBooks19 = bookLibrary.listBooksWithCondition("Any title");
+        List<Book> listOfBooks21 = bookLibrary.listBooksWithCondition("ListOf40");
+
+        //then
+        assertEquals(0, listOfBooks0.size());
+        assertEquals(19, listOfBooks19.size());
+        assertEquals(0, listOfBooks21.size());
     }
 
+    @Test
     void testListBooksWithConditionsFragmentShorterThan3(){
-        assertTrue(false);
+        //given
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+
+        //when
+        List<Book> listOf0Books = bookLibrary.listBooksWithCondition("Am");
+
+        //then
+        assertEquals(0, listOf0Books.size());
+        verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
+
 }
