@@ -12,13 +12,11 @@ public class StreamMain {
     public static void main(String[] args) {
         BookDirectory theBookDirectory = new BookDirectory();
 
-        Map<String, Book> theResult = theBookDirectory.getList().stream()
+        String result  = theBookDirectory.getList().stream()
                 .filter(book -> book.getYearOfPublication() > 2005)
-                .collect(Collectors.toMap(Book::getSignature, book -> book));
+                .map(Book::toString)
+                .collect(Collectors.joining(",\n", "<<", ">>"));
 
-        System.out.println("# of elements in map: " + theResult.size());
-        theResult.entrySet().stream()
-                .map(entry -> entry.getKey() + ": " + entry.getValue())
-                .forEach(System.out::println);
+        System.out.println(result);
     }
 }
