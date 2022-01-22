@@ -5,18 +5,20 @@ import com.kodilla.stream.book.BookDirectory;
 import com.kodilla.stream.person.People;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
         BookDirectory theBookDirectory = new BookDirectory();
 
-        List<Book> theResult = theBookDirectory.getList().stream()
+        Map<String, Book> theResult = theBookDirectory.getList().stream()
                 .filter(book -> book.getYearOfPublication() > 2005)
-                .collect(Collectors.toList());
+                .collect(Collectors.toMap(Book::getSignature, book -> book));
 
-        System.out.println("# elements: " + theResult.size());
-        theResult.stream()
+        System.out.println("# of elements in map: " + theResult.size());
+        theResult.entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
     }
 }
