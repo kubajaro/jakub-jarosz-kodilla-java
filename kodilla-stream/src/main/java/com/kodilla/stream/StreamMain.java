@@ -3,6 +3,7 @@ package com.kodilla.stream;
 import com.kodilla.stream.beautifier.BeautifierServices;
 import com.kodilla.stream.beautifier.PoemDecorator;
 import com.kodilla.stream.beautifier.PoemExpressionExecutor;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.Executor;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.lambda.Processor;
@@ -36,5 +37,7 @@ public class StreamMain {
         poemExpressionExecutor.executor(textToBeautify, (text) -> text + " (after text)");
         poemExpressionExecutor.executor(textToBeautify, BeautifierServices::firstAndLastLetterUpperCase);
         poemExpressionExecutor.executor(textToBeautify, BeautifierServices::textAsQuote);
+
+        NumbersGenerator.generateEvenNumbers(100);
     }
 }
