@@ -28,4 +28,22 @@ public class SandStorageTestSuite {
         BigDecimal expected = new BigDecimal("211111110903703703670");
         assertEquals(expected, totalSand);
     }
+
+    @Test
+    void testGetSandBeansQuantityWithReduce(){
+        //given
+        List<SandStorage> continents = new ArrayList<>();
+        continents.add(new Europe());
+        continents.add(new Africa());
+        continents.add(new Asia());
+
+        //when
+        BigDecimal totalSand = continents.stream()
+                .map(SandStorage::getSandBeansQuantity)
+                .reduce(BigDecimal.ZERO, (sum, current) -> sum = sum.add(current));
+
+        //then
+        BigDecimal expected = new BigDecimal("211111110903703703670");
+        assertEquals(expected, totalSand);
+    }
 }
