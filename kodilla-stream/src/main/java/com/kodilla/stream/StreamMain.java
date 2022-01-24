@@ -1,5 +1,7 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.array.ArrayOperations;
+import com.kodilla.stream.array.ArrayServices;
 import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
