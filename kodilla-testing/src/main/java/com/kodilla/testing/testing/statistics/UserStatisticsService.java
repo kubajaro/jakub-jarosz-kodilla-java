@@ -4,12 +4,11 @@ public class UserStatisticsService {
     private Statistics statistics;
     UserStatistics userStatistics = new UserStatistics();
 
-    public UserStatisticsService(Statistics statistics, UserStatistics userStatistics) {
+    public UserStatisticsService(Statistics statistics) {
         this.statistics = statistics;
-        this.userStatistics = userStatistics;
     }
 
-    public void calculateAdvStatistics() {
+    public UserStatistics calculateAdvStatistics() {
         int usersCount = statistics.userNames().size();
         int postsCount = statistics.postsCount();
         int commentsCount = statistics.commentsCount();
@@ -30,6 +29,6 @@ public class UserStatisticsService {
         }else{
             userStatistics.setAverageCommentsPerPost(0);
         }
-
+        return userStatistics;
     }
 }

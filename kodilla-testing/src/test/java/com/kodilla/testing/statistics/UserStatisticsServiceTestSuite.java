@@ -31,14 +31,13 @@ public class UserStatisticsServiceTestSuite {
     @Test
     void getStatisticsTestPostsCount0(){
         //given
-        UserStatistics userStatistics = new UserStatistics();
-        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock, userStatistics);
+        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock);
         when(statisticsMock.postsCount()).thenReturn(0);
         when(statisticsMock.commentsCount()).thenReturn(2);
         when(statisticsMock.userNames()).thenReturn(statisticsArrayList(2));
 
         //when
-        userStatisticsService.calculateAdvStatistics();
+        UserStatistics userStatistics = userStatisticsService.calculateAdvStatistics();
 
         //expected
         assertEquals(0, userStatistics.getAverageCommentsPerPost());
@@ -48,14 +47,13 @@ public class UserStatisticsServiceTestSuite {
     @Test
     void getStatisticsTestPostsCount1000(){
         //given
-        UserStatistics userStatistics = new UserStatistics();
-        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock, userStatistics);
+        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock);
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(500);
         when(statisticsMock.userNames()).thenReturn(statisticsArrayList(2));
 
         //when
-        userStatisticsService.calculateAdvStatistics();
+        UserStatistics userStatistics = userStatisticsService.calculateAdvStatistics();
 
         //expected
         assertEquals(0.5, userStatistics.getAverageCommentsPerPost());
@@ -66,14 +64,13 @@ public class UserStatisticsServiceTestSuite {
     @Test
     void getStatisticsTestCommentsCount0(){
         //given
-        UserStatistics userStatistics = new UserStatistics();
-        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock, userStatistics);
+        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock);
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(0);
         when(statisticsMock.userNames()).thenReturn(statisticsArrayList(2));
 
         //when
-        userStatisticsService.calculateAdvStatistics();
+        UserStatistics userStatistics = userStatisticsService.calculateAdvStatistics();
 
         //expected
         assertEquals(0, userStatistics.getAverageCommentsPerPost());
@@ -84,14 +81,13 @@ public class UserStatisticsServiceTestSuite {
     @Test
     void getStatisticsTestMorePostsThanComments(){
         //given
-        UserStatistics userStatistics = new UserStatistics();
-        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock, userStatistics);
+        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock);
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(500);
         when(statisticsMock.userNames()).thenReturn(statisticsArrayList(2));
 
         //when
-        userStatisticsService.calculateAdvStatistics();
+        UserStatistics userStatistics = userStatisticsService.calculateAdvStatistics();
 
         //expected
         assertEquals(0.5, userStatistics.getAverageCommentsPerPost());
@@ -102,14 +98,13 @@ public class UserStatisticsServiceTestSuite {
     @Test
     void getStatisticsTestMoreCommentsThanPosts(){
         //given
-        UserStatistics userStatistics = new UserStatistics();
-        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock, userStatistics);
+        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock);
         when(statisticsMock.postsCount()).thenReturn(500);
         when(statisticsMock.commentsCount()).thenReturn(1000);
         when(statisticsMock.userNames()).thenReturn(statisticsArrayList(2));
 
         //when
-        userStatisticsService.calculateAdvStatistics();
+        UserStatistics userStatistics = userStatisticsService.calculateAdvStatistics();
 
         //expected
         assertEquals(2, userStatistics.getAverageCommentsPerPost());
@@ -120,14 +115,13 @@ public class UserStatisticsServiceTestSuite {
     @Test
     void getStatisticsTestUsersCount0(){
         //given
-        UserStatistics userStatistics = new UserStatistics();
-        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock, userStatistics);
+        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock);
         when(statisticsMock.postsCount()).thenReturn(500);
         when(statisticsMock.commentsCount()).thenReturn(1000);
         when(statisticsMock.userNames()).thenReturn(statisticsArrayList(0));
 
         //when
-        userStatisticsService.calculateAdvStatistics();
+        UserStatistics userStatistics = userStatisticsService.calculateAdvStatistics();
 
         //expected
         assertEquals(2, userStatistics.getAverageCommentsPerPost());
@@ -138,14 +132,13 @@ public class UserStatisticsServiceTestSuite {
     @Test
     void getStatisticsTestUsersCount100(){
         //given
-        UserStatistics userStatistics = new UserStatistics();
-        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock, userStatistics);
+        UserStatisticsService userStatisticsService = new UserStatisticsService(statisticsMock);
         when(statisticsMock.postsCount()).thenReturn(500);
         when(statisticsMock.commentsCount()).thenReturn(1000);
         when(statisticsMock.userNames()).thenReturn(statisticsArrayList(100));
 
         //when
-        userStatisticsService.calculateAdvStatistics();
+        UserStatistics userStatistics = userStatisticsService.calculateAdvStatistics();
 
         //expected
         assertEquals(2, userStatistics.getAverageCommentsPerPost());
