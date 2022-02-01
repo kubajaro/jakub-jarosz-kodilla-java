@@ -9,7 +9,7 @@ public class ExceptionModuleRunner {
         FileReader fileReader = new FileReader();
 
         try {
-            fileReader.readFile();
+            fileReader.readFile("nie_ma");
         } catch (FileReaderException e) {
             System.out.println("Problem while reading a file!");
         }
