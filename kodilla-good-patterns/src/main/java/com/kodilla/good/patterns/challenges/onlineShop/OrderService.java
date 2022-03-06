@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface OrderService {
     void changeOrderStatus();
-    List<Product> createFinalOrder();
+    List<Product> createFinalOrderedProductList();
 }

@@ -34,8 +34,4 @@ public class Order {
     public void setOrderStatus(String orderStatus) {
         this.orderStatus = orderStatus;
     }
-
-    public void setOrderedProducts(List<Product> orderedProducts) {
-        this.orderedProducts = orderedProducts;
-    }
 }

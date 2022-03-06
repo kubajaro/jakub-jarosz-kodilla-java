@@ -4,20 +4,22 @@ import java.util.List;
 
 public class OrderServiceImpl implements OrderService {
     private Order order;
+    private Customer customer;
 
-    public OrderServiceImpl(Order order) {
+    public OrderServiceImpl(Order order, Customer customer) {
         this.order = order;
+        this.customer = customer;
     }
 
     @Override
     public void changeOrderStatus() {
-        if(createFinalOrder().size() != 0){
+        if(createFinalOrderedProductList().size() != 0){
             order.setOrderStatus("In progress...");
         }
     }
 
     @Override
-    public List<Product> createFinalOrder() {
+    public List<Product> createFinalOrderedProductList() {
         List<Product> finalOrderList = order.getOrderedProducts();
 
         for(Product product: finalOrderList) {
