@@ -4,4 +4,11 @@ public class ProductOrderService {
     private InformationService informationService;
     private OrderService orderService;
 
+    public ProductOrderService(InformationService informationService, OrderService orderService) {
+        this.informationService = informationService;
+        this.orderService = orderService;
+    }
+
+
+
 }
