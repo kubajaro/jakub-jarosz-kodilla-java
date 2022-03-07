@@ -13,20 +13,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void changeOrderStatus() {
-        if(createFinalOrderedProductList().size() != 0){
+        if(order.getOrderedProducts().size() != 0){
             order.setOrderStatus("In progress...");
         }
     }
 
-    @Override
-    public List<Product> createFinalOrderedProductList() {
-        List<Product> finalOrderList = order.getOrderedProducts();
-
-        for(Product product: finalOrderList) {
-            if(!product.isAvailability()) {
-                finalOrderList.remove(product);
-            }
-        }
-        return finalOrderList;
-    }
 }

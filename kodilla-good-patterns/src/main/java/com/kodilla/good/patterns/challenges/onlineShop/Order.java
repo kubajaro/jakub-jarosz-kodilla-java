@@ -1,5 +1,6 @@
 package com.kodilla.good.patterns.challenges.onlineShop;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
@@ -13,10 +14,6 @@ public class Order {
         this.orderNumber = orderNumber;
         this.orderStatus = orderStatus;
         this.orderedProducts = orderedProducts;
-    }
-
-    public Customer getCustomer() {
-        return customer;
     }
 
     public int getOrderNumber() {
@@ -35,7 +32,4 @@ public class Order {
         this.orderStatus = orderStatus;
     }
 
-    public void setOrderedProducts(List<Product> orderedProducts) {
-        this.orderedProducts = orderedProducts;
-    }
 }

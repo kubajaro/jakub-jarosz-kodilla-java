@@ -5,11 +5,11 @@ import java.util.List;
 
 public class OrderRequestRetriever {
     public static List<Product> orderedProducts(){
-        Product product1 = new Product("Shoes", "Nike", "F90", 001, false);
-        Product product2 = new Product("Food", "Bakery", "Classic bread", 002, true);
-        Product product3 = new Product("Computer games", "Rockstar", "GTA", 001, true);
-        Product product4 = new Product("Computer keyboards", "Logitech", "K90", 9999, true);
-        Product product5 = new Product("Headphones", "JBL", "233", 98283, false);
+        Product product1 = new Product("Shoes", "Nike", "F90", 001);
+        Product product2 = new Product("Food", "Bakery", "Classic bread", 002);
+        Product product3 = new Product("Computer games", "Rockstar", "GTA", 001);
+        Product product4 = new Product("Computer keyboards", "Logitech", "K90", 9999);
+        Product product5 = new Product("Headphones", "JBL", "233", 98283);
 
         List<Product> firstOrder = new ArrayList<>();
         firstOrder.add(product1);

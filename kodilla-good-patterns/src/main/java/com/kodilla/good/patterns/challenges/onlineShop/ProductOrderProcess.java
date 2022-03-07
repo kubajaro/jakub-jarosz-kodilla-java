@@ -10,16 +10,11 @@ public class ProductOrderProcess {
     }
 
     public OrderDto process(final OrderRequest orderRequest){
-        informationService.informIfProductUnavailable();
-        Order updatedOrder = orderRequest.getOrder();
-        updatedOrder.setOrderedProducts(orderService.createFinalOrderedProductList());
         orderService.changeOrderStatus();
-
-        OrderRequest updatedOrderRequest = orderRequest;
-        updatedOrderRequest.setOrder(updatedOrder);
+        informationService.sendOrderStatusNotification();
 
         System.out.println("Order status changed");
-        return new OrderDto(updatedOrderRequest.getCustomer().getName(), updatedOrderRequest.getCustomer().getLastname(),
-                updatedOrderRequest.getOrder().getOrderNumber(), updatedOrderRequest.getOrder().getOrderedProducts());
+        return new OrderDto(orderRequest.getCustomer().getName(), orderRequest.getCustomer().getLastname(),
+                orderRequest.getOrder().getOrderNumber(), orderRequest.getOrder().getOrderedProducts());
     }
 }

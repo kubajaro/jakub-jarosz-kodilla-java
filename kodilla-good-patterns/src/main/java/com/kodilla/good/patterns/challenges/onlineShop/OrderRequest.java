@@ -17,11 +17,4 @@ public class OrderRequest {
         return order;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
 }

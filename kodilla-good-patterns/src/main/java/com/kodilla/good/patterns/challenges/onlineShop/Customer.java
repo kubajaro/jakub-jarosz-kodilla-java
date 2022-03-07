@@ -19,7 +19,4 @@ public class Customer {
         return lastname;
     }
 
-    public String getDeliveryAddress() {
-        return deliveryAddress;
-    }
 }
