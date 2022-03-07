@@ -7,11 +7,13 @@ public class Order {
     private List<Product> productList;
     private int orderNumber;
     private boolean isOrderPlaced;
+    private boolean isOrderRealized;
 
-    public Order(Supplier supplier, List<Product> productList, boolean isOrderPlaced) {
+    public Order(Supplier supplier, List<Product> productList, boolean isOrderPlaced, boolean isOrderRealized) {
         this.supplier = supplier;
         this.productList = productList;
         this.isOrderPlaced = isOrderPlaced;
+        this.isOrderRealized = isOrderRealized;
     }
 
     public Supplier getSupplier() {
@@ -30,7 +32,15 @@ public class Order {
         return isOrderPlaced;
     }
 
+    public boolean isOrderRealized() {
+        return isOrderRealized;
+    }
+
     public void setOrderPlaced(boolean orderPlaced) {
         isOrderPlaced = orderPlaced;
+    }
+
+    public void setOrderRealized(boolean orderRealized) {
+        isOrderRealized = orderRealized;
     }
 }
