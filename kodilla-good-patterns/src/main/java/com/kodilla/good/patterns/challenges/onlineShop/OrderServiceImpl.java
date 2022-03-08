@@ -12,7 +12,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public void changeOrderStatus() {
+    public void changeOrderStatus(Order order) {
         if(order.getOrderedProducts().size() != 0){
             order.setOrderStatus("In progress...");
         }

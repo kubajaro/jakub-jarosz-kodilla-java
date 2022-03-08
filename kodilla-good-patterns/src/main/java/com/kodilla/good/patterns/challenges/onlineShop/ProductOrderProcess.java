@@ -10,7 +10,7 @@ public class ProductOrderProcess {
     }
 
     public OrderDto process(final OrderRequest orderRequest){
-        orderService.changeOrderStatus();
+        orderService.changeOrderStatus(orderRequest.getOrder());
         informationService.sendOrderStatusNotification();
 
         System.out.println("Order status changed");

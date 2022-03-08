@@ -3,5 +3,5 @@ package com.kodilla.good.patterns.challenges.onlineShop;
 import java.util.List;
 
 public interface OrderService {
-    void changeOrderStatus();
+    void changeOrderStatus(Order order);
 }
