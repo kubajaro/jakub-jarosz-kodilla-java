@@ -8,7 +8,8 @@ public class Order {
     private boolean isOrderPlaced;
     private boolean isOrderRealized;
 
-    public Order(List<Product> productList, boolean isOrderPlaced, boolean isOrderRealized) {
+    public Order(int orderNumber, List<Product> productList, boolean isOrderPlaced, boolean isOrderRealized) {
+        this.orderNumber = orderNumber;
         this.productList = productList;
         this.isOrderPlaced = isOrderPlaced;
         this.isOrderRealized = isOrderRealized;

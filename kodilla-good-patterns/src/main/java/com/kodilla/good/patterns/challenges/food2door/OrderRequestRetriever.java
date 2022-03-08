@@ -15,4 +15,11 @@ public class OrderRequestRetriever {
 
         return orderedProducts;
     }
+
+    public OrderRequest orderRequest(){
+        Supplier supplier = new Supplier("Test", 112313);
+        Order order = new Order(122, orderedProducts(), false, false);
+
+        return new OrderRequest(supplier, order);
+    }
 }

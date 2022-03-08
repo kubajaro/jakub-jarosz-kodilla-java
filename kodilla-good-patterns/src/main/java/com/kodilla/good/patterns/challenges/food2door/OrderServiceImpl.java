@@ -14,6 +14,6 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public void realizeOrder(Order order) {
-        order.setOrderPlaced(true);
+        order.setOrderRealized(true);
     }
 }
