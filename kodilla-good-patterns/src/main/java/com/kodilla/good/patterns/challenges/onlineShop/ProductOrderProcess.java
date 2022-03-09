@@ -11,7 +11,7 @@ public class ProductOrderProcess {
 
     public OrderDto process(final OrderRequest orderRequest){
         orderService.changeOrderStatus(orderRequest.getOrder());
-        informationService.sendOrderStatusNotification();
+        informationService.sendOrderStatusNotification(orderRequest.getOrder());
 
         System.out.println("Order status changed");
         return new OrderDto(orderRequest.getCustomer().getName(), orderRequest.getCustomer().getLastname(),

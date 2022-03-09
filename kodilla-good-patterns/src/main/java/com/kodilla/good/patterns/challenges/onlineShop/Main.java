@@ -5,8 +5,8 @@ public class Main {
         OrderRequestRetriever orderRequestRetriever = new OrderRequestRetriever();
         OrderRequest orderRequest = orderRequestRetriever.retrieve();
 
-        ProductOrderProcess productOrderProcess = new ProductOrderProcess(new InformationServiceImpl(orderRequest.getOrder()),
-                new OrderServiceImpl(orderRequest.getOrder(), orderRequest.getCustomer()));
+        ProductOrderProcess productOrderProcess = new ProductOrderProcess(new InformationServiceImpl(),
+                new OrderServiceImpl());
         productOrderProcess.process(orderRequest);
     }
 }
