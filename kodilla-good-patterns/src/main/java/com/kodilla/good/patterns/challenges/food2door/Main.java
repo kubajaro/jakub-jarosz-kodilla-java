@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         OrderRequest orderRequest = new OrderRequest();
 
-        OrderProcessor orderProcessor = new OrderProcessor();
-        orderProcessor.orderProcessor(orderRequest.orderRequest());
+        OrderService orderService = new OrderService();
+        orderService.assignSupplierToOrder(orderRequest.orderRequest());
     }
 }
