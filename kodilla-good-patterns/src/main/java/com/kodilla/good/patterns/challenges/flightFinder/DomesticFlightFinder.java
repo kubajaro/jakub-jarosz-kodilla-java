@@ -14,6 +14,8 @@ public class DomesticFlightFinder implements FlightFinder {
         flightResult = flightSet.stream().filter(flight -> flight.getDeparture().equals(departureCity))
                 .collect(Collectors.toList());
 
+        FlightListPrinter.printList(flightResult);
+
         return flightResult;
     }
 
@@ -21,6 +23,8 @@ public class DomesticFlightFinder implements FlightFinder {
     public List<Flight> flightsTo(String arrivalCity) {
         flightResult = flightSet.stream().filter(flight -> flight.getArrival().equals(arrivalCity))
                 .collect(Collectors.toList());
+
+        FlightListPrinter.printList(flightResult);
 
         return flightResult;
     }
@@ -30,11 +34,14 @@ public class DomesticFlightFinder implements FlightFinder {
        Flight firstFlight = flightSet.stream().filter(flight -> flight.equals(new Flight(departureCity, stopOver))).findFirst().get();
        Flight secondFlight = flightSet.stream().filter(flight -> flight.equals(new Flight(stopOver, arrivalCity))).findFirst().get();
 
-       if(firstFlight != null && secondFlight != null){
-            return "Found flights: \nFirst: " + firstFlight.getDeparture() + " to " + firstFlight.getArrival()
-           + "\nSecond: " + secondFlight.getDeparture() + " to " + secondFlight.getArrival();
-       }
+        System.out.println("Found flights: \nFirst: " + firstFlight.getDeparture() + " to " + firstFlight.getArrival()
+                + "\nSecond: " + secondFlight.getDeparture() + " to " + secondFlight.getArrival());
 
-        return "No connection found...";
+       if(firstFlight != null && secondFlight != null){
+            return flightResult.toString() + " " + secondFlight.toString();
+       }else {
+           System.out.println("No connection found...");
+           return "No connection found...";
+       }
     }
 }
