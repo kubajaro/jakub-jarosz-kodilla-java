@@ -1,8 +1,16 @@
 package com.kodilla.spring.intro.shape;
 
 public class Drawer {
+    Shape shape;
 
-    public void doDrawing(){
+    public Drawer() {
+    }
+
+    public Drawer(final Shape shape) {
+        this.shape = shape;
+    }
+
+    public void doDrawing() {
         Figure figure;
 
         figure = new Circle();
@@ -10,5 +18,9 @@ public class Drawer {
 
         figure = new Triangle();
         figure.draw();
+    }
+
+    public String doShapeDrawing() {
+      return shape.drawShape();
     }
 }
