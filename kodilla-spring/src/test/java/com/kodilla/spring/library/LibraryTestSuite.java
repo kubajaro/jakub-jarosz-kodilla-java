@@ -5,6 +5,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 @SpringBootTest(classes = LibraryDbController.class)
 public class LibraryTestSuite {
 
@@ -32,5 +35,17 @@ public class LibraryTestSuite {
 
         //then
         //do nothing
+    }
+
+    @Test
+    void testContext() {
+        //given
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+
+        //when&then
+        System.out.println("======== LISTA BEANOW ========>");
+        Arrays.stream(context.getBeanDefinitionNames())
+                .forEach(System.out::println);
+        System.out.println("<======== LISTA BEANOW ========");
     }
 }
