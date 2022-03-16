@@ -1,4 +1,4 @@
-package com.kodilla.spring.shape;
+package com.kodilla.spring.portfolio.shape;
 
 public class Square implements Shape {
 
