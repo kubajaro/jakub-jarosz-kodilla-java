@@ -36,8 +36,19 @@ public class BoardTestSuite {
         board.getLists().add(listDone);
         System.out.println(board);
 
+        //making a shallow clone of object board
+        Board cloneBoard = null;
+        try {
+            cloneBoard = board.shallowCopy();
+            cloneBoard.setName("Project number 2");
+        } catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+        System.out.println(cloneBoard);
+
         //When
         //Then
         assertEquals(3, board.getLists().size());
+        assertEquals(3, cloneBoard.getLists().size());
     }
 }

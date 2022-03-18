@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Board {
-    private final String name;
+public class Board extends Prototype<Board> {
+    private String name;
     private final Set<TasksList> lists = new HashSet<>();
 
     public Board(String name) {
@@ -16,8 +16,16 @@ public class Board {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Set<TasksList> getLists() {
         return lists;
+    }
+
+    public Board shallowCopy() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     @Override
