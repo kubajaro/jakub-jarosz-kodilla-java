@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class BoardTestSuite {
 
@@ -34,7 +35,7 @@ public class BoardTestSuite {
         board.getLists().add(listToDo);
         board.getLists().add(listInProgress);
         board.getLists().add(listDone);
-        System.out.println(board);
+
 
         //making a shallow clone of object board
         Board cloneBoard = null;
@@ -44,11 +45,26 @@ public class BoardTestSuite {
         } catch (CloneNotSupportedException e) {
             System.out.println(e);
         }
-        System.out.println(cloneBoard);
+
+        Board deepCloneBoard = null;
+        try {
+            deepCloneBoard = board.deepCopy();
+            deepCloneBoard.setName("Project number 3");
+        }   catch (CloneNotSupportedException e) {
+            System.out.println(e);
+        }
+
+        board.getLists().remove(listToDo);
 
         //When
         //Then
-        assertEquals(3, board.getLists().size());
-        assertEquals(3, cloneBoard.getLists().size());
+        System.out.println(board);
+        System.out.println(cloneBoard);
+        System.out.println(deepCloneBoard);
+        assertEquals(2, board.getLists().size());
+        assertEquals(2, cloneBoard.getLists().size());
+        assertEquals(3, deepCloneBoard.getLists().size());
+        assertEquals(cloneBoard.getLists(), board.getLists());
+        assertNotEquals(deepCloneBoard.getLists(), board.getLists());
     }
 }
