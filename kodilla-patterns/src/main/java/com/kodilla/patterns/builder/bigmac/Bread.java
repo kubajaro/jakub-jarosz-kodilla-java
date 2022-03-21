@@ -3,7 +3,10 @@ package com.kodilla.patterns.builder.bigmac;
 public class Bread {
     public static final String BUN = "BUN";
     public static final String ROLL = "ROLL";
-    private final String bread;
+    private String bread;
+
+    public Bread() {
+    }
 
     public Bread(String bread) {
         if (bread.equals(BUN) || bread.equals(ROLL)) {
@@ -15,5 +18,16 @@ public class Bread {
 
     public String getBread() {
         return bread;
+    }
+
+    public void setBread(String bread) {
+        this.bread = bread;
+    }
+
+    @Override
+    public String toString() {
+        return "Bread{" +
+                "bread='" + bread + '\'' +
+                '}';
     }
 }
