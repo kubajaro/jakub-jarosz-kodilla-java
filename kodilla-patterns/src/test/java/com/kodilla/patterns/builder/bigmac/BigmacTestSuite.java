@@ -11,9 +11,9 @@ public class BigmacTestSuite {
         //given
         //when
         Bigmac bigmac = new Bigmac.BigmacBuilder()
-                .Bread(Bread.BUN)
-                .Burgers(3)
-                .Sauce(Sauce.BBQ)
+                .bread(Bread.BUN)
+                .burgers(3)
+                .sauce(Sauce.BBQ)
                 .ingredientsList(Ingredients.CHEESE)
                 .ingredientsList(Ingredients.CHILLI)
                 .ingredientsList(Ingredients.MUSHROOMS)
