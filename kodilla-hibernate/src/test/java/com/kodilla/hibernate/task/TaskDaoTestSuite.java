@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class TaskDaoTestSuite {
@@ -48,5 +48,19 @@ class TaskDaoTestSuite {
 
         //then
         assertNotNull(result);
+    }
+
+    @Test
+    void testTaskDaoSaveWithFinancialDetails() {
+        //given
+        Task task = new Task(DESCRIPTION, 10);
+        task.setTaskFinancialDetails(new TaskFinancialDetails(new BigDecimal(12), false));
+
+        //when
+        taskDao.save(task);
+        int id = task.getId();
+
+        //then
+        //assertEquals(17, id);
     }
 }
