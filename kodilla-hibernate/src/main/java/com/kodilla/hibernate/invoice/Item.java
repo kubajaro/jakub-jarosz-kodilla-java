@@ -15,6 +15,7 @@ public class Item {
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
     @Column(name = "PRICE")
@@ -27,6 +28,7 @@ public class Item {
     private BigDecimal value;
 
     @ManyToOne
+    @JoinColumn(name = "INVOICE_ID")
     private Invoice invoice;
 
     public Item() {
@@ -46,11 +48,11 @@ public class Item {
         this.id = id;
     }
 
-    public com.kodilla.hibernate.invoice.Product getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(com.kodilla.hibernate.invoice.Product product) {
+    public void setProduct(Product product) {
         product = product;
     }
 
