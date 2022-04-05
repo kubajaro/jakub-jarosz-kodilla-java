@@ -1,9 +1,6 @@
 package com.kodilla.hibernate.invoice;
 
 import com.kodilla.hibernate.invoice.dao.InvoiceDao;
-import com.kodilla.hibernate.invoice.dao.ItemDao;
-import com.kodilla.hibernate.invoice.dao.ProductDao;
-import org.assertj.core.api.junit.jupiter.InjectSoftAssertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
