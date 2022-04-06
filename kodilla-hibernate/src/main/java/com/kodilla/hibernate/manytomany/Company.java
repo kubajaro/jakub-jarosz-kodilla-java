@@ -6,6 +6,11 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveCompanyBeginningWithName",
+        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 0, 2) = :COMPANY",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
