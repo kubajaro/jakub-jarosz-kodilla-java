@@ -8,7 +8,7 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.retrieveCompanyBeginningWithName",
-        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 0, 2) = :COMPANY",
+        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 0, 2) = :COMPANY_NAME_BEGINNING",
         resultClass = Company.class
 )
 @Entity

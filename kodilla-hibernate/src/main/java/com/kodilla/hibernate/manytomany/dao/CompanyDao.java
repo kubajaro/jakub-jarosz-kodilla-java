@@ -12,7 +12,6 @@ import java.util.List;
 @Transactional
 @Repository
 public interface CompanyDao extends CrudRepository<Company, Integer> {
-
     @Query
-    List<Company> retrieveCompanyBeginningWithName(@Param("COMPANY") String nameBeginning);
+    List<Company> retrieveCompanyBeginningWithName(@Param("COMPANY_NAME_BEGINNING") String nameBeginning);
 }
