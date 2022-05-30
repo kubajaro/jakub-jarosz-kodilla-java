@@ -15,24 +15,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class TaskFinancialDetailsDaoTestSuite {
-
-    @Autowired
-    private TaskFinancialDetailsDao taskFinancialDetailsDao;
-
-    @Test
-    void testFindByPaid() {
-        //given
-        TaskFinancialDetails taskFinancialDetails = new TaskFinancialDetails(new BigDecimal(115), true);
-        taskFinancialDetailsDao.save(taskFinancialDetails);
-        int id = taskFinancialDetails.getId();
-
-        //when
-        List<TaskFinancialDetails> result = taskFinancialDetailsDao.findByPaid(true);
-
-        //then
-        assertEquals(1, result.size());
-
-        //cleanUp
-        taskFinancialDetailsDao.deleteById(id);
-    }
+//
+//    @Autowired
+//    private TaskFinancialDetailsDao taskFinancialDetailsDao;
+//
+//    @Test
+//    void testFindByPaid() {
+//        //given
+//        TaskFinancialDetails taskFinancialDetails = new TaskFinancialDetails(new BigDecimal(115), true);
+//        taskFinancialDetailsDao.save(taskFinancialDetails);
+//        int id = taskFinancialDetails.getId();
+//
+//        //when
+//        List<TaskFinancialDetails> result = taskFinancialDetailsDao.findByPaid(true);
+//
+//        //then
+//        assertEquals(1, result.size());
+//
+//        //cleanUp
+//        taskFinancialDetailsDao.deleteById(id);
+//    }
 }
