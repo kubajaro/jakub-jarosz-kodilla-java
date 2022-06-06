@@ -14,4 +14,7 @@ import java.util.List;
 public interface CompanyDao extends CrudRepository<Company, Integer> {
     @Query
     List<Company> retrieveCompanyBeginningWithName(@Param("COMPANY_NAME_BEGINNING") String nameBeginning);
+
+    @Query
+    List<Company> retrieveCompanyContainingName(@Param("COMPANY_NAME_CONTAIN") String companyNameContains);
 }

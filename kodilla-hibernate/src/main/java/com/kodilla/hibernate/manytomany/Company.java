@@ -6,11 +6,18 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@NamedNativeQuery(
-        name = "Company.retrieveCompanyBeginningWithName",
-        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 0, 2) = :COMPANY_NAME_BEGINNING",
-        resultClass = Company.class
-)
+@NamedNativeQueries({
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanyBeginningWithName",
+                query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 0, 2) = :COMPANY_NAME_BEGINNING",
+                resultClass = Company.class
+        ),
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanyContainingName",
+                query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE :%COMPANY_NAME_CONTAINS%",
+                resultClass = Company.class
+        )
+})
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
